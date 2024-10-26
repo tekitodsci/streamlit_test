@@ -1,5 +1,16 @@
 import streamlit as st
 
+# 簡易認証の設定
+def check_password():
+    password = st.sidebar.text_input("パスワードを入力してください:", type="password")
+    if password != "testtesttest":
+        st.error("パスワードが違います。")
+        return False
+    return True
+
+if not check_password():
+    st.stop()
+
 # タイトル
 st.title("ユーザー入力表示アプリ")
 
